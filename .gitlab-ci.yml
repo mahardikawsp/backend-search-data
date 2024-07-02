@@ -1,0 +1,28 @@
+stages:
+  - build
+  - deployontarget
+  - cleanupcache
+
+imageBuild:
+  stage: build
+  only:
+   - development
+  script:
+    - ssh root@192.168.200.165 "cd /opt/banyuwangi-project/$CI_PROJECT_NAME &&
+                                   git pull && git checkout development && cd .. &&
+                                   docker-compose build --no-cache $CI_PROJECT_NAME"
+
+deployOnTarget:
+  stage: deployontarget
+  only:
+   - development
+  script:
+    - ssh root@192.168.200.165 "cd /opt/banyuwangi-project && docker-compose up -d $CI_PROJECT_NAME"
+
+
+cleanupCache:
+  stage: cleanupcache
+  only:
+   - development
+  script:
+    - ssh root@192.168.200.165 "docker system prune -f"

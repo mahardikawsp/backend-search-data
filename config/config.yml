@@ -1,0 +1,14 @@
+APP_NAME: sample
+ES_HOST: http://192.168.200.165:19202
+ES_USERNAME: elastic
+ES_PASSWORD: ANg8aeno
+ES_INDEX: satudata_enriched,econnect_enriched
+INDEX_SKPD: skpd_enriched
+INDEX_URUSAN: urusan_enriched
+DB_HOST: 192.168.200.165
+DB_PORT: 33066
+DB_USERNAME: root
+DB_PASSWORD: eh1tooWi
+DB_NAME: econnect_integrasi
+IS_MIGRATE: false
+USE_SSL: false
